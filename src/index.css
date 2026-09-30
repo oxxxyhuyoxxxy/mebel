@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --brand-color: #D97706;
+  --warm-white: #FAFAF7;
+  --oat: #F5F0E8;
+  --charcoal: #2D2D2D;
+  --charcoal-light: #4A4A4A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--warm-white);
+  color: var(--charcoal);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(45, 45, 45, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(45, 45, 45, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+}
+
+.blueprint-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+}
+
+@keyframes flowArrow {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes buildUp {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+.egress-path {
+  animation: flowArrow 0.5s linear infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.slide-in-panel {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.build-up {
+  animation: buildUp 0.5s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--oat);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal-light);
+  border-radius: 3px;
+}
+
+/* Color picker styling */
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: 2px solid rgba(45, 45, 45, 0.2);
+  border-radius: 50%;
+}
